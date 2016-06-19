@@ -7,7 +7,7 @@ rm(list = ls()) # clear vars
 setwd("C:/dev/ExData_Plotting1")
 
 # references
-list.of.packages <- c("dplyr", "tidyr", "sqldf", "data.table")
+list.of.packages <- c("dplyr", "tidyr", "sqldf")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[, "Package"])]
 if (length(new.packages))
     install.packages(new.packages)
@@ -19,6 +19,7 @@ path <- getwd()
 filename <- "household_power_consumption.zip"
 zip_file <- file.path(path, filename)
 
+# if zip does not exist download and extract
 if (!file.exists(zip_file)) {
     download.file(url, zip_file)
     unzip(zip_file, exdir = path)
